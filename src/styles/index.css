@@ -1,0 +1,70 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Neon selection */
+  ::selection {
+    background: var(--color-magenta);
+    color: var(--color-bg);
+  }
+
+  /* Visible keyboard focus everywhere (accessibility). Mouse clicks don't
+     trigger :focus-visible, so this only shows for keyboard navigation. */
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Custom scrollbar to match the arcade theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cyan);
+  }
+
+  /* When the custom neon cursor is active, hide the native OS cursor
+     everywhere (including interactive elements that would otherwise show a
+     pointer/hand). The class is toggled on <html> by NeonCursor, so touch and
+     reduced-motion users are unaffected. */
+  html.neon-cursor-active,
+  html.neon-cursor-active * {
+    cursor: none !important;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/*
+ * Design tokens — the single source of truth for the visual theme.
+ *
+ * Everything visual references these custom properties. Shipping dark-only,
+ * but a future theme toggle just needs to override these values under a
+ * different selector (e.g. [data-theme="light"]) — no component changes.
+ */
+:root {
+  /* Surfaces */
+  --color-bg: #0a0a0f;
+  --color-bg-elevated: #12121c;
+
+  /* Neon accents */
+  --color-cyan: #2de2e6;
+  --color-magenta: #ff3cac;
+  --color-amber: #ffb627;
+
+  /* Text */
+  --color-text: #e8e8f0;
+  --color-text-dim: #8a8aa3;
+
+  /* Lines / borders */
+  --color-line: #23233a;
+
+  /* Glows (used by Tailwind boxShadow tokens) */
+  --glow-cyan: 0 0 5px rgba(45, 226, 230, 0.5), 0 0 20px rgba(45, 226, 230, 0.35);
+  --glow-magenta: 0 0 5px rgba(255, 60, 172, 0.5), 0 0 20px rgba(255, 60, 172, 0.35);
+  --glow-amber: 0 0 5px rgba(255, 182, 39, 0.5), 0 0 20px rgba(255, 182, 39, 0.35);
+}
