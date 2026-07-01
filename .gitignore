@@ -12,6 +12,9 @@ dist-ssr
 # Redundant source asset (the resume used by the site lives in public/resume/)
 /Tejas Sharma CV.pdf
 
+# Resume HTML source + generated PDF (kept local; final PDF is in public/resume/)
+/resume-build/
+
 # Env / secrets
 .env
 .env.*
